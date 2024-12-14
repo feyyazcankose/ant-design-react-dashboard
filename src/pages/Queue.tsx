@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Typography, Breadcrumb } from "antd";
+import { Button, Typography, Breadcrumb, Card } from "antd";
 import QueuesTable from "../components/queues/QueuesTable";
 import NewWorkerModal from "../components/queues/NewWorkerModal";
 import { NewWorkerFormData } from "../types/queue";
@@ -20,40 +20,15 @@ const QueuesDashboard: React.FC = () => {
     <div
       style={{ background: isDarkMode ? "#000" : "#fff", minHeight: "100%" }}
     >
-      <div
-        style={{
-          padding: "16px 24px",
-          borderBottom: `1px solid ${isDarkMode ? "#303030" : "#f0f0f0"}`,
-        }}
-      >
+      <div style={{}}>
         <Breadcrumb
-          items={[
-            { title: "Home" },
-            { title: "Servers" },
-            { title: "Staging Server" },
-            { title: "B7e5f9" },
-            { title: "Queue" },
-          ]}
+          items={[{ title: "Home" }, { title: "Queue" }]}
           separator=">"
         />
       </div>
-      <div style={{ padding: "24px" }}>
-        <div
-          style={{
-            background: isDarkMode ? "#141414" : "#fff",
-            borderRadius: 8,
-            border: `1px solid ${isDarkMode ? "#303030" : "#f0f0f0"}`,
-          }}
-        >
-          <div
-            style={{
-              padding: "24px",
-              borderBottom: `1px solid ${isDarkMode ? "#303030" : "#f0f0f0"}`,
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
+      <div style={{ marginTop: "20px" }}>
+        <Card classNames={{ body: "!p-0" }}>
+          <div className="flex justify-between items-center p-5">
             <div>
               <Title level={4} style={{ margin: 0 }}>
                 Queues
@@ -69,7 +44,7 @@ const QueuesDashboard: React.FC = () => {
             </Button>
           </div>
           <QueuesTable />
-        </div>
+        </Card>
       </div>
       <NewWorkerModal
         open={isModalOpen}
