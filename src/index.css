@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --border-color: #f0f0f0;
+  --text-secondary: rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] {
+  --border-color: #303030;
+  --text-secondary: rgba(255, 255, 255, 0.45);
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+}
+
+/* Menu Styles */
+.ant-menu-item {
+  height: 28px !important;
+  line-height: 28px !important;
+  margin: 2px 8px !important;
+  border-radius: 6px !important;
+  font-weight: 400 !important;
+  font-size: 13px !important;
+  padding: 0 12px !important;
+}
+
+.ant-menu-item .anticon {
+  font-size: 14px !important;
+  margin-right: 8px !important;
+}
+
+.ant-menu-inline-collapsed {
+  width: 80px !important;
+}
+
+.ant-menu-inline-collapsed .ant-menu-item {
+  padding: 0 !important;
+  margin: 2px 16px !important;
+  width: 48px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.ant-menu-inline-collapsed .ant-menu-item .anticon {
+  margin: 0 !important;
+  font-size: 14px !important;
+  line-height: 28px !important;
+}
+
+.ant-menu-item-group-title {
+  padding: 8px 20px 4px !important;
+  font-size: 11px !important;
+  line-height: 16px !important;
+  font-weight: 400 !important;
+  color: var(--text-secondary) !important;
+  margin-top: 8px !important;
+}
+
+/* Hide group titles when collapsed */
+.ant-menu-inline-collapsed .ant-menu-item-group-title {
+  display: none !important;
+}
+
+.ant-menu-inline-collapsed .ant-menu-title-content {
+  display: none !important;
+}
+
+.ant-menu-item {
+  width: auto !important;
+}
+
+.ant-menu-item svg {
+  width: 16px !important;
+  height: 16px !important;
+}
