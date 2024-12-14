@@ -11,12 +11,15 @@ import {
   IconCloudSync,
   IconDatabase,
 } from "justd-icons";
+import { useNavigate } from "react-router-dom";
 
 interface SidebarProps {
   collapsed: boolean;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
+  const navigate = useNavigate();
+
   const menuItems = [
     {
       key: "application",
@@ -27,21 +30,25 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
           key: "site",
           icon: <IconHome3 />,
           label: "Site",
+          onClick: () => navigate("/site"),
         },
         {
           key: "deployments",
           icon: <IconFolderUpload />,
           label: "Deployments",
+          onClick: () => navigate("/deployments"),
         },
         {
           key: "commands",
           icon: <IconTerminal />,
           label: "Commands",
+          onClick: () => navigate("/commands"),
         },
         {
           key: "environment",
           icon: <IconDatabase />,
           label: "Environment Variables",
+          onClick: () => navigate("/environment"),
         },
       ],
     },
@@ -54,16 +61,19 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
           key: "queue",
           icon: <IconCloudSync />,
           label: "Queue",
+          onClick: () => navigate("/queue"),
         },
         {
           key: "ssl",
           icon: <IconLock />,
           label: "SSL",
+          onClick: () => navigate("/ssl"),
         },
         {
           key: "settings",
           icon: <IconSettings />,
           label: "Settings",
+          onClick: () => navigate("/settings"),
         },
       ],
     },
@@ -76,11 +86,13 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
           key: "security",
           icon: <IconShield />,
           label: "Security Rules",
+          onClick: () => navigate("/security"),
         },
         {
           key: "logs",
           icon: <IconFileText />,
           label: "Logs",
+          onClick: () => navigate("/logs"),
         },
       ],
     },

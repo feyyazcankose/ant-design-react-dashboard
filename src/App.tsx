@@ -1,17 +1,19 @@
 import { Layout, ConfigProvider, theme } from "antd";
+import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import Sidebar from "./components/layout/Sidebar";
 import AppHeader from "./components/layout/AppHeader";
-import QueuesDashboard from "./components/queues/QueuesDashboard";
+//import AnotherPage from "./components/pages/AnotherPage";
 import { ThemeProvider, useTheme } from "./theme/ThemeContext";
 import "./styles/global.css";
 import React from "react";
+import { routes } from "./routes";
 
 const { Content, Sider } = Layout;
 
 function AppContent() {
   const { isDarkMode } = useTheme();
   const [collapsed, setCollapsed] = React.useState(false);
-
+  const element = useRoutes(routes);
   return (
     <ConfigProvider
       theme={{
@@ -73,9 +75,7 @@ function AppContent() {
             collapsed={collapsed}
             onCollapse={() => setCollapsed(!collapsed)}
           />
-          <Content>
-            <QueuesDashboard />
-          </Content>
+          <Content style={{ padding: 24 }}>{element}</Content>
         </Layout>
       </Layout>
     </ConfigProvider>
@@ -85,7 +85,9 @@ function AppContent() {
 function App() {
   return (
     <ThemeProvider>
-      <AppContent />
+      <Router>
+        <AppContent />
+      </Router>
     </ThemeProvider>
   );
 }
