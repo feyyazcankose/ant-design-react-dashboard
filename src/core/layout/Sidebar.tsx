@@ -12,6 +12,7 @@ import {
   IconDatabase,
 } from "justd-icons";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "../../theme/ThemeContext";
 
 interface SidebarProps {
   collapsed: boolean;
@@ -19,6 +20,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
   const navigate = useNavigate();
+  const { isDarkMode } = useTheme();
 
   const menuItems = [
     {
@@ -110,6 +112,8 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
           fontWeight: "bold",
           fontSize: "16px",
           marginTop: "16px",
+          color: isDarkMode ? "#fff" : "#000", // Dinamik metin rengi
+          backgroundColor: isDarkMode ? "#18181b" : "#f4f4f5", // Dinamik arka plan
         }}
       >
         {collapsed ? "P" : "Portfoliosite"}
@@ -122,6 +126,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
         style={{
           height: "calc(100% - 40px)",
           borderRight: "none",
+          color: isDarkMode ? "#fff" : "#000", // Menü başlıkları için renk
         }}
       />
     </div>
